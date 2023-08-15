@@ -4,9 +4,9 @@ A program that produces LTE-based column density cubes from 12CO, 13CO (&amp; C1
 # Running COLTE
 COLTE is very simple to run.
 
-import colte
+    import colte
 
-colte.make_LTE_cubes('default.params')
+    colte.make_LTE_cubes('params.json')
 
 The performance is controlled by a bunch of parameters that are stored in a .json file.
 
