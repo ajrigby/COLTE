@@ -1,0 +1,12 @@
+{
+    "data_in_12CO": "../tmb_12CO.fits",
+    "data_in_13CO": "../tmb_13CO.fits",
+    "data_in_C18O": "../tmb_C18O.fits",
+    "single_Tex": 0.0,
+    "data_out": "colte_",
+    "transition": "3-2",
+    "snrlim12": 3.0,
+    "snrlim13": 3.0,
+    "snrlim18": 3.0,
+    "fill_method": "median" 
+}
