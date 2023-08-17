@@ -1,0 +1,17 @@
+{
+    "data_in_12CO": "tmb_12CO.fits",
+    "data_in_13CO": "tmb_13CO.fits",
+    "data_in_C18O": "tmb_C18O.fits",
+    "Tex_mode": 1,
+    "single_Tex": 15.0,
+    "Tau_mode": 1,   
+    "R1318": 6.5, 
+    "single_Tau": 1.0,
+    "data_out": "colte_",
+    "transition": "3-2",
+    "snrlim12": 3.0,
+    "snrlim13": 3.0,
+    "snrlim18": 3.0,
+    "fill_method": "rescale",
+    "plot_results": 0
+}
