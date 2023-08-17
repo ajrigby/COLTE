@@ -1,5 +1,6 @@
 # COLTE: CO Local Thermodynamic Equilibrium
-A program that produces LTE-based column density cubes from 12CO, 13CO (&amp; C18O).
+A program that produces LTE-based column density cubes from 12CO, 13CO (&amp; C18O),
+largely following the procedure outlined in [Rigby et al. 2019](https://ui.adsabs.harvard.edu/abs/2019A%26A...632A..58R/abstract), which uses COHRS 12CO and CHIMPS 13CO and C18O 3-2 data.
 
 ## Installation
 The easiest way to install COLTE is via pip
@@ -8,8 +9,7 @@ The easiest way to install COLTE is via pip
 
 
 ## Running COLTE
-COLTE is very simple to run, and simply requires a single parameter JSON file
-which contains an easy to format dictionary.
+COLTE is very simple to run, and simply requires a parameter file as the input.
 
     from colte.LTE import make_cubes
 
@@ -25,7 +25,10 @@ The code produces three cubes: excitation temperature, 13CO optical depth, and
 
 ### Parameters:
 The performance is controlled by a bunch of parameters that are stored in a .json file.
-The default values are stored in the `defaultparams.json` file on the GitHub page.
+The file format is fairly simple. Please note that all paths must be given relative to
+the location in which you are running `colte` (not relative to the location of the 
+parameter file itself). Some suggested default values are stored in the 
+`defaultparams.json` file on the GitHub page, which should give you an idea of how it works.
 
 `data_in_12CO`: string. Path to the input 12CO cube.                                       
 `data_in_13CO`: string. Path to the input 13CO cube.                                          
@@ -45,7 +48,7 @@ The default values are stored in the `defaultparams.json` file on the GitHub pag
 `Tau_mode`: integer. A value of 1 will calculate Tau primarly from 13CO/Tex
                      A value of 2 will use the low tau assumption with single_Tau
                      A value of 3 will use the optically thin approximation.  
-`R1318`: integer. Assumeed abundance ratio of 13CO to C18O.  
+`R1318`: integer. Assumeed abundance ratio of 13CO to C18O. We refer the reader to [Wilson & Rood 1994](https://ui.adsabs.harvard.edu/abs/1994ARA%26A..32..191W/abstract) for selecting suitable values.  
 `single_Tau:` float. The assumed optical depth for use in Tau_mode 2.  
 `fill_method`: string. Either "interpolate", "median", "rescale" or "none".     
 
