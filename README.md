@@ -42,7 +42,7 @@ parameter file itself). Some suggested default values are stored in the
 `snrlim13`: float. Signal-to-noise ratio threshold for 13CO.                                                         
 `snrlim18`: float. Signal-to-noise ratio threshold for C18O.                                                          
 
-`Tex_mode`: integer. A value of 1 will calculate Tex primarily from 12CO.
+`Tex_mode`: integer. A value of 1 will calculate Tex primarily from 12CO.  
                      A value of 2 will adopt single_Tex for all pixels
 `single_Tex`: float. The assumed single  excitation temperature.             
 `Tau_mode`: integer. A value of 1 will calculate Tau primarly from 13CO/Tex
