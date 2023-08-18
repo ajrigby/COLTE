@@ -42,16 +42,13 @@ parameter file itself). Some suggested default values are stored in the
 `snrlim13`: float. Signal-to-noise ratio threshold for 13CO.                                                         
 `snrlim18`: float. Signal-to-noise ratio threshold for C18O.                                                          
 
-`Tex_mode`: integer. A value of 1 will calculate Tex primarily from 12CO.  
-                     A value of 2 will adopt single_Tex for all pixels
+`Tex_mode`: integer. A value of 1 will calculate Tex primarily from 12CO. A value of 2 will adopt single_Tex for all pixels.   
 `single_Tex`: float. The assumed single  excitation temperature.             
-`Tau_mode`: integer. A value of 1 will calculate Tau primarly from 13CO/Tex
-                     A value of 2 will use the low tau assumption with single_Tau
-                     A value of 3 will use the optically thin approximation.  
+`Tau_mode`: integer. A value of 1 will calculate Tau primarly from 13CO/Tex. A value of 2 will use the low tau assumption with single_Tau. A value of 3 will use the optically thin approximation.  
 `R1318`: integer. Assumeed abundance ratio of 13CO to C18O. We refer the reader to [Wilson & Rood 1994](https://ui.adsabs.harvard.edu/abs/1994ARA%26A..32..191W/abstract) for selecting suitable values.  
 `single_Tau:` float. The assumed optical depth for use in Tau_mode 2.  
 `fill_method`: string. Either "interpolate", "median", "rescale" or "none".  
-`plot_results`: integer. If given a value of `1`, a figure will be produce on completion showing the results for the plane containing the brightest emission.
+`plot_results`: integer. If given a value of `1`, a figure will be produced on completion showing the results for the plane containing the brightest emission.
 
 #### Note on fill methods:
 The fill_method parameter controls how tau values are filled, which often arise as a result of the 13CO brightness temperature approaching or exceed the value for 12CO, which may happen due to non-LTE conditions, such as self absoprtions, or line of sight temperature gradients. Problems may also arise due to observational effects. It is assumed that the input cubes all have the same resolution in all three dimensions, and deviations from this are bound to occur in reality. This can lead to a sort of 'mottling' of the various maps, with beam-sized undulations. These are difficult to avoid because the calculations involve ratios of various versions of the cubes, which produce particularly strong mottling effects at low signal-to-noise ratio (S/N < 25 or so).
