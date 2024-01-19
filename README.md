@@ -1,3 +1,7 @@
+<p align="center">
+<img src="docs/logo.png" alt="" width="512"/>
+</p>
+
 # COLTE: CO Local Thermodynamic Equilibrium
 A program that produces LTE-based column density cubes from 12CO, 13CO (&amp; C18O),
 largely following the procedure outlined in [Rigby et al. 2019](https://ui.adsabs.harvard.edu/abs/2019A%26A...632A..58R/abstract), which uses COHRS 12CO and CHIMPS 13CO and C18O 3-2 data.
