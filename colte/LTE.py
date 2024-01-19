@@ -37,7 +37,12 @@ def vaxis(header):
     CRVAL = header['CRVAL3']
     vaxis = CDELT * (np.arange(NAX) - CRPIX + 1) + CRVAL
 
-    return vaxis * u.Unit(header['CUNIT3'])
+    if 'CUNIT3' in header:
+        vunit = u.Unit(header['CUNIT3'])
+    else:
+        vunit = u.m / u.s
+
+    return vaxis * vunit
 
 
 def get_einsteinA(filename, J):
@@ -161,6 +166,10 @@ def fill_cube_interp(cube, emissionmask, **kwargs):
 
 
 def fill_cube_median(cube, mask, **kwargs):
+    """
+    Fills in nan values within a cube using a median filter, and specifying
+    an initial mask.
+    """
     masked_cube = cube.copy()
 
     masked_cube[np.isnan(mask)] = np.nan
@@ -402,7 +411,13 @@ def make_cubes(paramfile):
     # Identify the brightest 13CO plane for figures
     testplane = np.where(CO13 == np.nanmax(CO13))[0][0]
     vax = vaxis(hdr)
-    dv = (np.abs(hdr['CDELT3']) * u.Unit(hdr['CUNIT3'])).to('km/s')
+
+    if 'CUNIT3' in hdr:
+        vunit = u.Unit(hdr['CUNIT3'])
+    else:
+        vunit = u.m / u.s
+
+    dv = (np.abs(hdr['CDELT3']) * vunit).to('km/s')
     
     # ======= Mask cubes based on RMS maps =========
     RMS12 = get_rms_map(CO12)
